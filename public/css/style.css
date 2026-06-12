@@ -1,0 +1,160 @@
+:root {
+  --free: #2ecc71;
+  --ask: #f1c40f;
+  --forbidden: #e74c3c;
+  --none: #95a5a6;
+  --panel-bg: rgba(255, 255, 255, 0.95);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+}
+
+header {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+  background: var(--panel-bg);
+  padding: 10px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-width: 340px;
+}
+
+header h1 { margin: 0; font-size: 20px; }
+.tagline { margin: 4px 0 0; font-size: 12px; color: #555; }
+
+#map { height: 100vh; width: 100vw; }
+
+#peace-card {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1000;
+  background: var(--panel-bg);
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  min-width: 150px;
+}
+
+.peace-label { font-size: 12px; color: #555; }
+#peace-value { font-size: 36px; font-weight: bold; }
+#peace-value.high { color: var(--free); }
+#peace-value.mid { color: #c89b00; }
+#peace-value.low { color: var(--forbidden); }
+.peace-sample { font-size: 11px; color: #888; }
+
+#legend {
+  position: absolute;
+  bottom: 24px;
+  left: 12px;
+  z-index: 1000;
+  background: var(--panel-bg);
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.dot-free { background: var(--free); }
+.dot-ask { background: var(--ask); }
+.dot-forbidden { background: var(--forbidden); }
+.dot-none { background: var(--none); }
+
+#add-button {
+  position: absolute;
+  bottom: 24px;
+  right: 12px;
+  z-index: 1000;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  background: #3498db;
+  border: none;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+#add-button:hover { background: #2980b9; }
+#add-button.active { background: #e67e22; }
+
+#add-hint {
+  position: absolute;
+  bottom: 76px;
+  right: 12px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+dialog {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  padding: 20px 24px;
+  width: min(360px, 90vw);
+}
+dialog::backdrop { background: rgba(0, 0, 0, 0.4); }
+dialog h2 { margin: 0 0 12px; font-size: 17px; }
+
+#report-form label { display: block; margin-bottom: 10px; font-size: 13px; }
+#report-form input[type="text"],
+#report-form input:not([type]),
+#report-form select {
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+#report-form fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+#report-form .radio { margin: 4px 0; cursor: pointer; }
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+.dialog-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+.dialog-actions .primary {
+  background: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+.popup-status { font-weight: bold; }
+.popup-comment { color: #555; font-size: 12px; }
+.popup-date { color: #999; font-size: 11px; }
